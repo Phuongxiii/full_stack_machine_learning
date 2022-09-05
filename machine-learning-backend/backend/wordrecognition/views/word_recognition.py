@@ -1,9 +1,11 @@
+
 from django.shortcuts import render
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import ImageDto
-import base64
+from wordrecognition.serializers import ImageDtoSerializers
+from wordrecognition.models.image_dto import ImageDto
+from wordrecognition.controllers.model_tensorflow import ModelTensorflow
 
 # Create your views here.
 
@@ -14,7 +16,8 @@ def word_recognition(request, pk):
         imageDto = ImageDto.objects.get(pk=pk)
     except ImageDto.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
-    image_base64 = base64.b64encode(imageDto.image)
+    model_tf = ModelTensorflow()
+    result = model_tf.recognition(image=imageDto.image)
     return Response({
-        imageDto.title, image_base64, imageDto.create_at
+        imageDto.title, imageDto.create_at, imageDto.label, result
     })

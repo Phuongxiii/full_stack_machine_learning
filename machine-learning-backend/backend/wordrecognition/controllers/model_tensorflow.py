@@ -1,9 +1,6 @@
-from django.db import models
 import numpy as np
 import tensorflow as tf
-import matplotlib.pyplot as plt
 import os
-import cv2 as cv
 from tensorflow.keras.layers.experimental.preprocessing import StringLookup
 
 
@@ -11,13 +8,13 @@ class ModelTensorflow():
     np.random.seed(42)
     tf.random.set_seed(42)
     path = os.path.join(
-        os.path.dirname(os.path.dirname(__file__)), "wordrecognition\\data\\saved_model\\my_model")
+        os.path.dirname(os.path.dirname(__file__)), "data\\saved_model\\my_model")
     characters_1 = []
     max_len = 21
 
     def __init__(self):
         path_character = os.path.join(
-            os.path.dirname(os.path.dirname(__file__)), "wordrecognition\\data\\chars.txt")
+            os.path.dirname(os.path.dirname(__file__)), "data\\chars.txt")
         self.characters = open(path_character, "r").readlines()
         for i in self.characters:
             a = i[0]
@@ -101,26 +98,11 @@ class ModelTensorflow():
         image = tf.image.flip_left_right(image)
         return image
 
-
-# Create your models here.
-
-class ImageDto(models.Model):
-    title = models.TextField(max_length=50, default="image")
-    image = models.ImageField()
-    create_at = models.DateTimeField(auto_now_add=True)
-    label = models.CharField(max_length=21)
-
-
-class WordRecognition(models.Model):
-    image = models.ForeignKey(ImageDto, on_delete=models.CASCADE)
-    modelTf = ModelTensorflow()
-
-    def __init__(self):
-        self.model = self.modelTf.load_model()
-
     def recognition(self, image):
-        result = self.model.predict(image)
-        return self.modelTf.get_result(result=result)
-
-    def update_label(self, image):
-        return ImageDto.objects.create(**image)
+        model_tf = self.load_model()
+        image = self.distortion_free_resize(image, (128, 32))[:, :, :1]
+        image = image/255
+        image = np.expand_dims(image, axis=0)
+        image = np.vstack([image])
+        result = model_tf.predict(image)
+        return self.get_result(result=result)
