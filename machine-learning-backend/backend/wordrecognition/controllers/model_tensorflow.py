@@ -1,6 +1,7 @@
 import numpy as np
 import tensorflow as tf
 import os
+from PIL import Image
 from tensorflow.keras.layers.experimental.preprocessing import StringLookup
 
 
@@ -9,7 +10,7 @@ class ModelTensorflow():
     tf.random.set_seed(42)
     path = os.path.join(
         os.path.dirname(os.path.dirname(__file__)), "data\\saved_model\\my_model")
-    characters_1 = []
+    characters_1 = set()
     max_len = 21
 
     def __init__(self):
@@ -18,7 +19,7 @@ class ModelTensorflow():
         self.characters = open(path_character, "r").readlines()
         for i in self.characters:
             a = i[0]
-            self.characters_1.append(a)
+            self.characters_1.add(a)
         AUTOTUNE = tf.data.AUTOTUNE
 
         # Mapping characters to integers.
@@ -99,6 +100,9 @@ class ModelTensorflow():
         return image
 
     def recognition(self, image):
+        # image = tf.keras.utils.load_img(image.url)
+        image = Image.open(image.url).convert("RGB")
+        image = np.asarray(image)
         model_tf = self.load_model()
         image = self.distortion_free_resize(image, (128, 32))[:, :, :1]
         image = image/255

@@ -1,14 +1,14 @@
 /** @format */
 
-import { Box, Button, Center, VStack } from "@chakra-ui/react";
 import React, { useState, useEffect, useRef } from "react";
+import { Box, Button, Center, VStack } from "@chakra-ui/react";
+import Axios from "axios";
 
 const Paint = () => {
 	const canvasRef = useRef();
 	const [isDraw, setIsDraw] = useState(false);
 	const [count, setCount] = useState(0);
-	const [x, setX] = useState(null);
-	const [y, setY] = useState(null);
+	const [label, setLabel] = useState("");
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
@@ -37,6 +37,13 @@ const Paint = () => {
 	function endDraw(event) {
 		setIsDraw(false);
 	}
+	function predict(e) {
+		const path = "http://127.0.0.1:8000/";
+		let image = new Image();
+		const canvas = canvasRef.current;
+		let canvasUrl = canvas.toDataURL("image/png", 0.5);
+		image.src = canvasUrl;
+	}
 	function clear() {
 		const canvas = canvasRef.current;
 		const context = canvas.getContext("2d");
@@ -46,7 +53,6 @@ const Paint = () => {
 	function downloadImage() {
 		const canvas = canvasRef.current;
 		let canvasUrl = canvas.toDataURL("image/png", 0.5);
-		console.log(canvasUrl);
 		const createEl = document.createElement("a");
 		createEl.href = canvasUrl;
 		createEl.download = "download-this-canvas";
