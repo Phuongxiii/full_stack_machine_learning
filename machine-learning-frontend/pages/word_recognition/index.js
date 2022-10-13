@@ -10,7 +10,6 @@ const WordRecognition = () => {
 			h='100vh'
 			background={useColorModeValue("#F7ECDE", "#2C3333")}>
 			<Paint />
-			<Center>Word Recognition</Center>
 		</Container>
 	);
 };

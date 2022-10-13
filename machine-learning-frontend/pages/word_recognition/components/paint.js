@@ -1,25 +1,25 @@
 /** @format */
 
 import React, { useState, useEffect, useRef } from "react";
-import { Box, Button, Center, VStack } from "@chakra-ui/react";
-import Axios from "axios";
+import { Button, Center, VStack } from "@chakra-ui/react";
+import axios from "axios";
 
 const Paint = () => {
 	const canvasRef = useRef();
 	const [isDraw, setIsDraw] = useState(false);
 	const [count, setCount] = useState(0);
-	const [label, setLabel] = useState("");
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
 		const context = canvas.getContext("2d");
-		console.log(window.innerWidth);
 		context.fillStyle = "#fff";
 		context.fillRect(0, 0, canvas.width, canvas.height);
 	}, [count]);
+
 	function startDraw(event) {
 		setIsDraw(true);
 	}
+
 	function Draw(event) {
 		if (isDraw) {
 			const canvas = canvasRef.current;
@@ -34,22 +34,31 @@ const Paint = () => {
 		} else {
 		}
 	}
+
 	function endDraw(event) {
 		setIsDraw(false);
 	}
+
 	function predict(e) {
-		const path = "http://127.0.0.1:8000/";
+		const path = "http://127.0.0.1:8000/word_recognition/predict";
 		let image = new Image();
 		const canvas = canvasRef.current;
 		let canvasUrl = canvas.toDataURL("image/png", 0.5);
 		image.src = canvasUrl;
+		const data = new FormData();
+		data.append("image", image.src);
+		// Send formData object
+		console.log(data.get("image"));
+		axios.post(path, data);
 	}
+
 	function clear() {
 		const canvas = canvasRef.current;
 		const context = canvas.getContext("2d");
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		setCount(count + 1);
 	}
+
 	function downloadImage() {
 		const canvas = canvasRef.current;
 		let canvasUrl = canvas.toDataURL("image/png", 0.5);
@@ -59,6 +68,7 @@ const Paint = () => {
 		createEl.click();
 		createEl.remove();
 	}
+
 	return (
 		<Center>
 			<VStack>
@@ -75,6 +85,7 @@ const Paint = () => {
 				/>
 				<Button onClick={clear}>Restart</Button>
 				<Button onClick={downloadImage}>Download</Button>
+				<Button onClick={predict}>predict</Button>
 			</VStack>
 		</Center>
 	);
