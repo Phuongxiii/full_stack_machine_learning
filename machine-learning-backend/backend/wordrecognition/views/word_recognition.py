@@ -1,5 +1,5 @@
-from django.shortcuts import get_object_or_404
-from rest_framework import generics, mixins, Response
+from rest_framework import generics, mixins
+from rest_framework.response import Response
 from wordrecognition.serializers import ImageDtoSerializers
 from wordrecognition.models.image_dto import ImageDto
 from wordrecognition.controllers.model_tensorflow import ModelTensorflow
