@@ -1,13 +1,14 @@
 /** @format */
 
 import React, { useState, useEffect, useRef } from "react";
-import { Button, Center, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, HStack, Text, VStack } from "@chakra-ui/react";
 import axios from "axios";
 
 const Paint = () => {
 	const canvasRef = useRef();
 	const [isDraw, setIsDraw] = useState(false);
 	const [count, setCount] = useState(0);
+	const [labelOfImage, setLabelOfImage] = useState("");
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
@@ -39,17 +40,23 @@ const Paint = () => {
 		setIsDraw(false);
 	}
 
-	function predict(e) {
-		const path = "http://127.0.0.1:8000/word_recognition/predict";
-		let image = new Image();
+	async function predict(e) {
+		const path = "http://127.0.0.1:8000/word_recognition/predict/";
 		const canvas = canvasRef.current;
 		let canvasUrl = canvas.toDataURL("image/png", 0.5);
-		image.src = canvasUrl;
 		const data = new FormData();
-		data.append("image", image.src);
-		// Send formData object
-		console.log(data.get("image"));
-		axios.post(path, data);
+		data.append("image", canvasUrl);
+		data.append("title", "image");
+		data.append("label", "image");
+		await axios
+			.post(path, data)
+			.then((value) => {
+				console.log(value.data.image);
+				setLabelOfImage(value.data.image);
+			})
+			.catch(function (error) {
+				console.log(error.message);
+			});
 	}
 
 	function clear() {
@@ -57,6 +64,7 @@ const Paint = () => {
 		const context = canvas.getContext("2d");
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		setCount(count + 1);
+		setLabelOfImage("");
 	}
 
 	function downloadImage() {
@@ -64,7 +72,7 @@ const Paint = () => {
 		let canvasUrl = canvas.toDataURL("image/png", 0.5);
 		const createEl = document.createElement("a");
 		createEl.href = canvasUrl;
-		createEl.download = "download-this-canvas";
+		createEl.download = `download-this-canvas-${labelOfImage}`;
 		createEl.click();
 		createEl.remove();
 	}
@@ -83,9 +91,14 @@ const Paint = () => {
 						background: "#fff",
 					}}
 				/>
-				<Button onClick={clear}>Restart</Button>
-				<Button onClick={downloadImage}>Download</Button>
+				<Box p={3} backgroundColor='gray.300'>
+					<Text color='black'>label: {labelOfImage}</Text>
+				</Box>
 				<Button onClick={predict}>predict</Button>
+				<HStack>
+					<Button onClick={downloadImage}>Download</Button>
+					<Button onClick={clear}>Restart</Button>
+				</HStack>
 			</VStack>
 		</Center>
 	);

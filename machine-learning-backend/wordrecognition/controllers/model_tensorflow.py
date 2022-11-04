@@ -101,7 +101,7 @@ class ModelTensorflow():
 
     def recognition(self, image):
         # image = tf.keras.utils.load_img(image.url)
-        image = Image.open(image.url).convert("RGB")
+        # image = Image.open(image.url).convert("RGB")
         image = np.asarray(image)
         model_tf = self.load_model()
         image = self.distortion_free_resize(image, (128, 32))[:, :, :1]

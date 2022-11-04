@@ -59,28 +59,28 @@
                         <mxRectangle width="160" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="94" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=1;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2">
+                <mxCell id="94" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=1;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2" vertex="1">
                     <mxGeometry y="150" width="200" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="95" value="5" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;pointerEvents=1;" vertex="1" parent="94">
+                <mxCell id="95" value="5" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;pointerEvents=1;" parent="94" vertex="1">
                     <mxGeometry width="40" height="30" as="geometry">
                         <mxRectangle width="40" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="96" value="predict: func" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;pointerEvents=1;" vertex="1" parent="94">
+                <mxCell id="96" value="predict: func" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;pointerEvents=1;" parent="94" vertex="1">
                     <mxGeometry x="40" width="160" height="30" as="geometry">
                         <mxRectangle width="160" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="97" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=1;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2">
+                <mxCell id="97" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=1;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2" vertex="1">
                     <mxGeometry y="180" width="200" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="98" value="6" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;pointerEvents=1;" vertex="1" parent="97">
+                <mxCell id="98" value="6" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;pointerEvents=1;" parent="97" vertex="1">
                     <mxGeometry width="40" height="30" as="geometry">
                         <mxRectangle width="40" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="99" value="training_model: func" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;pointerEvents=1;" vertex="1" parent="97">
+                <mxCell id="99" value="training_model: func" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;pointerEvents=1;" parent="97" vertex="1">
                     <mxGeometry x="40" width="160" height="30" as="geometry">
                         <mxRectangle width="160" height="30" as="alternateBounds"/>
                     </mxGeometry>
@@ -305,6 +305,53 @@
             <root>
                 <mxCell id="YaFA4VVd4LfBgKLxFMdI-0"/>
                 <mxCell id="YaFA4VVd4LfBgKLxFMdI-1" parent="YaFA4VVd4LfBgKLxFMdI-0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="pN8scp7Gpm0YT5OmLm6W" name="Trang-3">
+        <mxGraphModel dx="2323" dy="1232" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="4681" pageHeight="3300" background="#FFFFFF" math="0" shadow="0">
+            <root>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-0"/>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-1" parent="nJNGqQ9Re7_AeRrthacv-0"/>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-4" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;fontColor=#000000;strokeColor=#000000;strokeWidth=3;" edge="1" parent="nJNGqQ9Re7_AeRrthacv-1" source="nJNGqQ9Re7_AeRrthacv-2" target="nJNGqQ9Re7_AeRrthacv-3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-2" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 14px&quot;&gt;&amp;nbsp;Nguồn 220V - 50Hz&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=4;strokeColor=#000000;" vertex="1" parent="nJNGqQ9Re7_AeRrthacv-1">
+                    <mxGeometry x="-719" y="-303" width="172" height="82" as="geometry"/>
+                </mxCell>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-6" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;fontColor=#000000;strokeColor=#000000;strokeWidth=3;" edge="1" parent="nJNGqQ9Re7_AeRrthacv-1" source="nJNGqQ9Re7_AeRrthacv-3" target="nJNGqQ9Re7_AeRrthacv-5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-3" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 14px&quot;&gt;Máy biến áp 1P1S &lt;br&gt;220/10&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=4;strokeColor=#000000;" vertex="1" parent="nJNGqQ9Re7_AeRrthacv-1">
+                    <mxGeometry x="-490" y="-303" width="172" height="82" as="geometry"/>
+                </mxCell>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-15" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;fontColor=#000000;strokeColor=#000000;strokeWidth=3;" edge="1" parent="nJNGqQ9Re7_AeRrthacv-1" source="nJNGqQ9Re7_AeRrthacv-5" target="nJNGqQ9Re7_AeRrthacv-8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-5" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 14px&quot;&gt;Mạch cầu 4 Diode&amp;nbsp;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=4;strokeColor=#000000;" vertex="1" parent="nJNGqQ9Re7_AeRrthacv-1">
+                    <mxGeometry x="-191" y="-303" width="172" height="82" as="geometry"/>
+                </mxCell>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-7" value="Biến trở" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#000000;" vertex="1" parent="nJNGqQ9Re7_AeRrthacv-1">
+                    <mxGeometry x="-287" y="-287" width="60" height="21" as="geometry"/>
+                </mxCell>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-16" style="edgeStyle=none;html=1;fontSize=14;fontColor=#000000;strokeColor=#000000;strokeWidth=3;" edge="1" parent="nJNGqQ9Re7_AeRrthacv-1" source="nJNGqQ9Re7_AeRrthacv-8" target="nJNGqQ9Re7_AeRrthacv-12">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-8" value="&lt;p class=&quot;MsoListParagraph&quot; style=&quot;margin-left: 0.75in ; text-indent: -0.25in ; font-size: 14px&quot;&gt;&lt;/p&gt;&lt;div style=&quot;font-size: 14px&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; text-indent: -0.25in&quot;&gt;Bộ điều&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0) ; text-indent: -0.25in&quot;&gt;chỉnh điện áp LM7805CT&lt;/span&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=4;strokeColor=#000000;align=center;" vertex="1" parent="nJNGqQ9Re7_AeRrthacv-1">
+                    <mxGeometry x="-191" y="-109" width="172" height="82" as="geometry"/>
+                </mxCell>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-10" value="Tụ điện&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#000000;" vertex="1" parent="nJNGqQ9Re7_AeRrthacv-1">
+                    <mxGeometry x="-167" y="-202" width="61" height="21" as="geometry"/>
+                </mxCell>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-11" value="Điện trở&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#000000;" vertex="1" parent="nJNGqQ9Re7_AeRrthacv-1">
+                    <mxGeometry x="-167" y="-168" width="64" height="21" as="geometry"/>
+                </mxCell>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-12" value="&lt;p class=&quot;MsoListParagraph&quot; style=&quot;margin-left: 0.75in ; text-indent: -0.25in ; font-size: 14px&quot;&gt;&lt;/p&gt;&lt;div style=&quot;text-indent: -24px&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 14px&quot;&gt;Đầu ra 3.5V&lt;/font&gt;&lt;/div&gt;&lt;p&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=4;strokeColor=#000000;align=center;" vertex="1" parent="nJNGqQ9Re7_AeRrthacv-1">
+                    <mxGeometry x="-488" y="-109" width="172" height="82" as="geometry"/>
+                </mxCell>
+                <mxCell id="nJNGqQ9Re7_AeRrthacv-14" value="Tụ điện&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#000000;" vertex="1" parent="nJNGqQ9Re7_AeRrthacv-1">
+                    <mxGeometry x="-272" y="-98" width="61" height="21" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
