@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Box, Button, Center, HStack, Text, VStack } from "@chakra-ui/react";
-import axios from "axios";
+import postImage from "./method/postImage";
 
 const Paint = () => {
 	const canvasRef = useRef();
@@ -41,22 +41,9 @@ const Paint = () => {
 	}
 
 	async function predict(e) {
-		const path = "http://127.0.0.1:8000/word_recognition/predict/";
 		const canvas = canvasRef.current;
 		let canvasUrl = canvas.toDataURL("image/png", 0.5);
-		const data = new FormData();
-		data.append("image", canvasUrl);
-		data.append("title", "image");
-		data.append("label", "image");
-		await axios
-			.post(path, data)
-			.then((value) => {
-				console.log(value.data.image);
-				setLabelOfImage(value.data.image);
-			})
-			.catch(function (error) {
-				console.log(error.message);
-			});
+		postImage(canvasUrl, setLabelOfImage);
 	}
 
 	function clear() {
@@ -92,9 +79,9 @@ const Paint = () => {
 					}}
 				/>
 				<Box p={3} backgroundColor='gray.300'>
-					<Text color='black'>label: {labelOfImage}</Text>
+					<Text color='black'>Label: {labelOfImage}</Text>
 				</Box>
-				<Button onClick={predict}>predict</Button>
+				<Button onClick={predict}>Predict</Button>
 				<HStack>
 					<Button onClick={downloadImage}>Download</Button>
 					<Button onClick={clear}>Restart</Button>

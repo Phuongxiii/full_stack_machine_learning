@@ -1,6 +1,7 @@
 import numpy as np
 import tensorflow as tf
 import os
+# import matplotlib.pyplot as plt
 from PIL import Image
 from tensorflow.keras.layers.experimental.preprocessing import StringLookup
 
@@ -66,6 +67,8 @@ class ModelTensorflow():
     def distortion_free_resize(self, image, img_size):
         w, h = img_size
         image = tf.image.resize(image, size=(h, w), preserve_aspect_ratio=True)
+        # plt.imshow(image)
+        # plt.show()
 
         # Check tha amount of padding needed to be done.
         pad_height = h - tf.shape(image)[0]
@@ -100,11 +103,20 @@ class ModelTensorflow():
         return image
 
     def recognition(self, image):
+        model_tf = self.load_model()
         # image = tf.keras.utils.load_img(image.url)
         # image = Image.open(image.url).convert("RGB")
         image = np.asarray(image)
-        model_tf = self.load_model()
-        image = self.distortion_free_resize(image, (128, 32))[:, :, :1]
+        print(len(image.shape))
+        print(image.shape)
+        if len(image.shape) == 3:
+            image = self.distortion_free_resize(image, (128, 32))[:, :, :1]
+        else:
+            image = np.reshape(image, (image.shape[0], image.shape[1], -1))
+            # print(image)
+            # print(len(image.shape))
+            # print(image.shape)
+            image = self.distortion_free_resize(image, (128, 32))
         image = image/255
         image = np.expand_dims(image, axis=0)
         image = np.vstack([image])
